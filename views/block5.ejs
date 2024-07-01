@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round of 16 - Block 5</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Quater-Finals</h1>
+    </header>
+    <main>
+        <div class="block">
+            <div class="sub-block">
+                <h3>Sub Block 1</h3>
+                <div class="match">
+                    <button id="team1Block1" onclick="selectTeam('team1Block1', 'Block 5', 'Sub Block 1')"></button>
+                    <span>vs</span>
+                    <button id="team2Block1" onclick="selectTeam('team2Block1', 'Block 5', 'Sub Block 1')"></button>
+                </div>
+            </div>
+            <div class="sub-block">
+                <h3>Sub Block 2</h3>
+                <div class="match">
+                    <button id="team1Block2" onclick="selectTeam('team1Block2', 'Block 5', 'Sub Block 2')"></button>
+                    <span>vs</span>
+                    <button id="team2Block2" onclick="selectTeam('team2Block2', 'Block 5', 'Sub Block 2')"></button>
+                </div>
+            </div>
+        </div>
+        <div id="selectedMatch">
+            <h2>Selected Match</h2>
+            <p>Select two teams from the same sub-block to display the match.</p>
+        </div>
+        <form action="/submit4" method="POST">
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <script>
+        // Wait for the DOM to fully load
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve selected matches from localStorage
+            const matchDetailsBlock1 = localStorage.getItem('selectedMatchBlock1');
+            const matchDetailsBlock2 = localStorage.getItem('selectedMatchBlock2');
+
+            if (matchDetailsBlock1 && matchDetailsBlock2) {
+                // Parse match details
+                const [team1Block1, team2Block1] = matchDetailsBlock1.split(' vs ');
+                const [team1Block2, team2Block2] = matchDetailsBlock2.split(' vs ');
+
+                // Set button text to selected teams
+                document.getElementById('team1Block1').textContent = team1Block1;
+                document.getElementById('team2Block1').textContent = team2Block1;
+                document.getElementById('team1Block2').textContent = team1Block2;
+                document.getElementById('team2Block2').textContent = team2Block2;
+            }
+        });
+
+        let selectedTeams = { 'Sub Block 1': '', 'Sub Block 2': '' };
+
+        function selectTeam(teamId, block, subBlock) {
+            const teamName = document.getElementById(teamId).textContent;
+            selectedTeams[subBlock] = teamName;
+            const subBlockTeams = Object.values(selectedTeams).filter(value => value && value !== teamName);
+
+            if (subBlockTeams.length === 1) {
+                const team1 = subBlockTeams[0];
+                const team2 = teamName;
+                const matchDetails = `${team1} vs ${team2}`;
+                showMatch(matchDetails);
+                localStorage.setItem('selectedMatchBlock5', matchDetails); // Store the match details in localStorage
+            } else {
+                const selectedMatchDiv = document.getElementById('selectedMatch');
+                selectedMatchDiv.innerHTML = `
+                    <h2>Selected Match</h2>
+                    <p>Select two teams from the same sub-block to display the match.</p>
+                `;
+            }
+        }
+
+        function showMatch(matchDetails) {
+            const selectedMatchDiv = document.getElementById('selectedMatch');
+            selectedMatchDiv.innerHTML = `
+                <h2>Selected Match</h2>
+                <p>${matchDetails}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

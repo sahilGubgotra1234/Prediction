@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../background.jpg'); /* Ensure this path is correct */
+    background-size: cover; /* Ensures the background image covers the entire body */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-bottom: 2px solid #ffcc00;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.block {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.sub-block {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.match {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.match button {
+    background-color: #ffcc00;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.match button:hover {
+    background-color: #000;
+    color: #ffcc00;
+}
+
+#selectedMatch {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="submit"] {
+    background-color: #ffcc00;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #000;
+    color: #ffcc00;
+}

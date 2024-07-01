@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round of 16 - Block 8</title>
+    <link rel="stylesheet" href="styles/style2.css">
+</head>
+<body>
+    <header>
+        <h1>Finals</h1>
+    </header>
+    <main>
+        <div class="block">
+            <div class="sub-block">
+                <h3>Sub Block</h3>
+                <div class="match">
+                    <button id="selectedTeamBlock7" onclick="selectTeam('Portugal')">Portugal</button>
+                    <span>vs</span>
+                    <button id="selectedTeamBlock8" onclick="selectTeam('Netherlands')">Netherlands</button>
+                </div>
+            </div>
+        </div>
+        <div id="selectedMatch">
+            <h2>Selected Team</h2>
+            <p>Select one team from the previous block to proceed.</p>
+        </div>
+        <form action="/submit9" method="POST">
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Always show the default message on page load
+            showDefaultMessage();
+        });
+
+        function selectTeam(teamName) {
+            showSelectedTeam(teamName);
+            localStorage.setItem('selectedMatchBlock8', teamName); // Store the selected team in localStorage
+        }
+
+        function showSelectedTeam(teamName) {
+            const selectedMatchDiv = document.getElementById('selectedMatch');
+            selectedMatchDiv.innerHTML = `
+                <h2>Selected Team</h2>
+                <p>${teamName}</p>
+            `;
+        }
+
+        function showDefaultMessage() {
+            const selectedMatchDiv = document.getElementById('selectedMatch');
+            selectedMatchDiv.innerHTML = `
+                <h2>Selected Team</h2>
+                <p>Select one team from the previous block to proceed.</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

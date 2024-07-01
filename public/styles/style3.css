@@ -1,0 +1,87 @@
+/* styles/winner.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('../background.jpg'); /* Ensure this path is correct */
+  background-size: cover; /* Ensures the background image covers the entire body */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-bottom: 2px solid #ffcc00;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+#winnerAnnouncement {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p#winnerTeam {
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+/* Celebration styles */
+@keyframes confetti {
+  0% {
+      transform: translateY(-100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+#winnerAnnouncement {
+  animation: confetti 1s ease forwards;
+}
+
+/* h1 {
+  position: absolute;
+  margin-top: 30vh;
+  width: 100%;
+  text-align: center;
+  font-size: 333%;
+  font-family: sans-serif;
+  color: grey;
+  opacity: 0.5;
+} */
+
+canvas {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+}
