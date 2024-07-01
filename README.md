@@ -1,2 +1,0 @@
-# Prediction
-Prediction of Euros
